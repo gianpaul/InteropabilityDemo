@@ -32,7 +32,7 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version = "2.5.1" }
 room-kapt = { group = "androidx.room", name = "room-compiler", version = "2.5.1" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidApplication = { id = "com.android.application", version = "8.0.2" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 dagger = { id = "dagger.hilt.android.plugin", version.ref = "hilt" }
 kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }

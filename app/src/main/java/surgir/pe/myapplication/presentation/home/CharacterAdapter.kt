@@ -1,5 +1,6 @@
 package surgir.pe.myapplication.presentation.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +12,7 @@ import surgir.pe.myapplication.domain.entity.Character
 class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     private val characters: MutableList<Character> = mutableListOf()
+
 
     fun setCharacters(newCharacters: List<Character>) {
         characters.clear()

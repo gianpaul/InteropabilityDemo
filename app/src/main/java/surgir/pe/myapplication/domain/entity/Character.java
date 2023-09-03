@@ -9,6 +9,11 @@ public class Character {
     private String name;
     private String type;
 
+    public Character(String name, String image) {
+        this.image = image;
+        this.name = name;
+    }
+
     public Character(String image, String gender, String species, String name, String type) {
         this.image = image;
         this.gender = gender;

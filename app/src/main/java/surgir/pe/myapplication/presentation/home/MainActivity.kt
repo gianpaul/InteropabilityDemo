@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import surgir.pe.myapplication.data.repository.CharacterRepositoryImpl
 import surgir.pe.myapplication.databinding.ActivityMainBinding
 import surgir.pe.myapplication.util.nonNullObserve
 
@@ -38,11 +39,17 @@ class MainActivity : ComponentActivity() {
                 }
                 is MainState.Success -> {
                     binding.progressBar.visibility = View.GONE
+                    binding.emptyTextView.visibility = View.GONE
                     characterAdapter.setCharacters(it.characters)
                 }
                 is MainState.Error -> {
                     binding.progressBar.visibility = View.GONE
+                    binding.emptyTextView.visibility = View.GONE
                     showErrorDialog()
+                }
+                is MainState.Empty -> {
+                    binding.emptyTextView.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
                 }
             }
         }

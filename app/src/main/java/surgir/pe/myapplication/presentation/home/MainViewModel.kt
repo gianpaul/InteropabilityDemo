@@ -17,6 +17,7 @@ sealed class MainState {
     object Loading : MainState()
     data class Success(val characters: List<Character>) : MainState()
     object Error : MainState()
+    object Empty : MainState()
 }
 
 @HiltViewModel
@@ -39,7 +40,11 @@ class MainViewModel @Inject constructor(
                     fetchCharacterUseCase.execute()
                 }
             }.onSuccess {
-                _state.value = MainState.Success(it)
+                if (it.isEmpty()) {
+                    _state.value = MainState.Empty
+                } else {
+                    _state.value = MainState.Success(it)
+                }
             }.onFailure {
                 _state.value = MainState.Error
             }
